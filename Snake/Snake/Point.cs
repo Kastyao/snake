@@ -23,6 +23,41 @@ namespace Snake
             this.symb = symb;
         }
 
+        public Point(Point p)
+        {
+            this.x = p.x;
+            this.y = p.y;
+            this.symb = p.symb;
+        }
+
+        public void Move(int offset, Direction direction)
+        {            
+            switch (direction)
+            {
+                case Direction.DOWN:
+                    {
+                        y += offset;
+                        break;
+                    }
+                case Direction.UP:
+                    {
+                        y -= offset;
+                        break;
+                    }
+                case Direction.RIGHT:
+                    {
+                        x += offset;
+                        break;
+                    }
+                case Direction.LEFT:
+                    {
+                        x -= offset;
+                        break;
+                    }
+                default: break;
+            }
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
